@@ -13,7 +13,9 @@
         android:layout_alignEnd="@+id/_dynamic"
         android:layout_alignParentBottom="true"
         android:onClick="onClick"
-        android:text="ADD YOUR FILM" />
+        android:text="ADD YOUR FILM"
+        android:textColor="@android:color/holo_orange_light"
+        android:textStyle="italic" />
 
     <ListView
         android:id="@+id/CinemaList"

@@ -1,5 +1,6 @@
 package com.hamood.malak.cinema;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,7 +20,7 @@ public class AddYourFilm extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_your_film);
-        Button btnSave = (Button) findViewById(R.id.button2);
+         btnSave = (Button) findViewById(R.id.btnSave);
         editText1=(EditText)findViewById((R.id.editText1));
         editText2=(EditText)findViewById(R.id.editText2);
         editText3=(EditText)findViewById(R.id.editText3);
@@ -29,9 +30,27 @@ public class AddYourFilm extends AppCompatActivity {
     {
         if (v==btnSave)
         {
-            Intent intent = new Intent(getBaseContext(), AddYourFilm.class);
-            startActivity(intent);
+
+            String n = editText1.getText().toString();
+            String k = editText2.getText().toString();
+            String d= editText3.getText().toString();
+            String r= editText4.getText().toString();
+
+            Films1 films1= new Films1();
+
+
+
+            films1.setName(n);
+            films1.setRate(r);
+            films1.setKind(k);
+            films1.setDate(d);
+            MyFilmsTable myFilmsTable= new MyFilmsTable(this);
+            myFilmsTable.addFilm(films1);
+            //Intent intent = new Intent(getBaseContext(), AddYourFilm.class);
+            //startActivity(intent);
             finish();
+
+
         }
 
     }

@@ -83,7 +83,7 @@ public class MyFilmsTable extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(selectQuery, null);
         boolean flag= cursor.moveToFirst();
         while (flag==true) {
-            do {
+
                 Films1 films1 = new Films1();
                 films1.set_id((cursor.getLong(0)));//id+
                 films1.setDate((cursor.getString(1)));//date
@@ -91,10 +91,11 @@ public class MyFilmsTable extends SQLiteOpenHelper {
                 films1.setName((cursor.getString(3)));//name
                 films1.setRate((cursor.getString(4)));//rate
                 allFilms.add(films1);
+                flag=(cursor.moveToNext());
             }
-            while ((cursor.moveToNext()));
 
-        }
         return allFilms;
-    }
+        }
+
 }
+
